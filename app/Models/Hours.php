@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Hours extends Model
+{
+    use HasFactory;
+    protected $table = 'hours';
+    protected $fillable = [
+        'workers_id',
+        'contrahents_id',
+        // 'contrahents_salary_cash',
+        // 'contrahents_salary_invoice',
+        // 'workers_price_hour',
+        'work_day',
+        'hours',
+        'status_of_billings'
+    ];
+    public function workers()
+    {
+        return $this->belongsTo(Workers::class);
+    }
+
+    public function contrahents()
+    {
+        return $this->belongsTo(Contrahents::class);
+    }
+
+}
